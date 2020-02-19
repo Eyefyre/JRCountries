@@ -23,10 +23,8 @@ public class CountryClient implements CountryClientInterface {
 
     private ArrayList<Country> useService(String path) {
         if (countryService.getCache().contains(path)) {
-            System.out.println("CacheGet");
             return (ArrayList<Country>) countryService.getCache().get(path);
         }
-        System.out.println("APIGet");
         return countryService.getResource(path);
     }
 
