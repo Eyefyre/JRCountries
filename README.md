@@ -1,30 +1,36 @@
-# JRCountries
+# restcountriesJava
 Java Wrapper for https://restcountries.eu/
 
 Maintained by [Eyefyre](https://github.com/Eyefyre)
  
 ## Example
- Full Documentation coming soon
  
  All methods return an arraylist of countries, even if there is only one country in the arraylist.
+ An example of how to get country info by name
  ```
- public class RestCountries {
-    public static void main(String[] args) {
-        CountryClient client = new CountryClient();
-        ArrayList<Country> France = client.getCountryByName("france");
-        System.out.println(France);
-    }
-}
+ CountryClient client = new CountryClient();
+ ArrayList<Country> France = client.getCountryByName("france");
 ```
- This wrapper uses a caching system.
- When a method is called, the returned object is stored in a local cache,
- If the same method is called within a set time, the cache is used instead of the API being called.
- The user can set this time as shown below. Note that the time given is in seconds. The default time is 600 seconds/10 minutes
+A cache is used to speed up API calls. Users can set the amount an object is stored in the cache for, like below. 
+ ```
+ CountryClient client = new CountryClient();
+ client.changeCacheTimeAmount(60);
+```
+## Usable Methods
+ Below is a list of usable methods in this wrapper
   ```
- public class RestCountries {
-    public static void main(String[] args) {
-        CountryClient client = new CountryClient();
-        client.changeCacheTimeAmount(60);
-    }
-}
+    void changeCacheTimeAmount(long seconds);
+    ArrayList<Country> getAllCountries();
+    ArrayList<Country> getCountryByName(String name);
+    ArrayList<Country> getCountryByFullName(String name);
+    ArrayList<Country> getCountryByCode(String code);
+    ArrayList<Country> getCountryByCodeList(String codeList);
+    ArrayList<Country> getCountryByCurrency(String currency);
+    ArrayList<Country> getCountryByLanguage(String lang);
+    ArrayList<Country> getCountryByCapitalCity(String capital);
+    ArrayList<Country> getCountryByCallingCode(String callingCode);
+    ArrayList<Country> getCountryByRegion(String region);
+    ArrayList<Country> getCountryByRegionalBloc(String bloc);
+
 ```
+ 
