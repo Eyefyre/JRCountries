@@ -41,7 +41,6 @@ public class Country {
     IDD idd;
     ArrayList<String> altSpellings;
     ArrayList<String> tld;
-
     CountryName name;
     ArrayList<Currency> currencies;
     ArrayList<Demonym> demonyms;
@@ -57,8 +56,6 @@ public class Country {
     public void setPostalCode(PostalCode postalCode) {
         this.postalCode = postalCode;
     }
-    
-    
 
     public String getCca2() {
         return cca2;
@@ -335,7 +332,10 @@ public class Country {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Country{cca2=").append(cca2);
+        
+        sb.append("name=").append(name);
+        sb.append(", tld=").append(tld);
+        sb.append(", cca2=").append(cca2);
         sb.append(", ccn3=").append(ccn3);
         sb.append(", cca3=").append(cca3);
         sb.append(", cioc=").append(cioc);
@@ -362,18 +362,13 @@ public class Country {
         sb.append(", capital=").append(capital);
         sb.append(", idd=").append(idd);
         sb.append(", altSpellings=").append(altSpellings);
-        sb.append(", tld=").append(tld);
-        sb.append(", name=").append(name);
         sb.append(", currencies=").append(currencies);
         sb.append(", demonyms=").append(demonyms);
         sb.append(", languages=").append(languages);
         sb.append(", translations=").append(translations);
         sb.append(", gini=").append(gini);
         sb.append(", postalCode=").append(postalCode);
-        sb.append('}');
         return sb.toString();
     }
-    
-    
 
 }

@@ -17,7 +17,14 @@ public class CountryClient {
     private final CountryService countryService = new CountryService();
 
     private ArrayList<Country> useService(String path) {
+        if (countryService.getCache().contains(path)) {
+            return countryService.getCache().get(path);
+        }
         return countryService.getResource(path);
+    }
+    
+    public void setCacheExpiry(long seconds){
+        countryService.setCacheExpiry(seconds);
     }
 
     public ArrayList<Country> getAllCountries() {

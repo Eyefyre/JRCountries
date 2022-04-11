@@ -5,6 +5,7 @@
  */
 package client;
 
+import cache.InMemoryCache;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.BufferedReader;
@@ -28,9 +29,21 @@ public class CountryService {
     private final String BASEURL = "https://restcountries.com/v3.1/";
     private String JSONSTRING = "";
 
+    private final InMemoryCache CACHE = new InMemoryCache();
+    private long cacheTimeInSeconds = 5;
+
     public ArrayList<Country> getResource(String path) {
         ArrayList<Country> list = queryAPI(path);
-        return (ArrayList<Country>) list;
+        CACHE.add(path, list, cacheTimeInSeconds);
+        return list;
+    }
+
+    public InMemoryCache getCache() {
+        return CACHE;
+    }
+
+    public void setCacheExpiry(long seconds) {
+        this.cacheTimeInSeconds = seconds;
     }
 
     public ArrayList<Country> queryAPI(String path) {
