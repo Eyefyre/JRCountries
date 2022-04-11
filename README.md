@@ -1,6 +1,7 @@
 # restcountriesJava
 Java Wrapper for https://restcountries.eu/
 
+This is for the V3.1 endpoint
 Maintained by [Eyefyre](https://github.com/Eyefyre)
  
 ## Example
@@ -11,15 +12,10 @@ Maintained by [Eyefyre](https://github.com/Eyefyre)
  CountryClient client = new CountryClient();
  ArrayList<Country> France = client.getCountryByName("france");
 ```
-A cache is used to speed up API calls. Users can set the amount an object is stored in the cache for, like below. 
- ```
- CountryClient client = new CountryClient();
- client.changeCacheTimeAmount(60);
-```
+
 ## Usable Methods
  Below is a list of usable methods in this wrapper
   ```
-    void changeCacheTimeAmount(long seconds);
     ArrayList<Country> getAllCountries();
     ArrayList<Country> getCountryByName(String name);
     ArrayList<Country> getCountryByFullName(String name);
@@ -27,10 +23,12 @@ A cache is used to speed up API calls. Users can set the amount an object is sto
     ArrayList<Country> getCountryByCodeList(String codeList);
     ArrayList<Country> getCountryByCurrency(String currency);
     ArrayList<Country> getCountryByLanguage(String lang);
+    ArrayList<Country> getCountryByTranslation(String translation);
     ArrayList<Country> getCountryByCapitalCity(String capital);
     ArrayList<Country> getCountryByCallingCode(String callingCode);
     ArrayList<Country> getCountryByRegion(String region);
     ArrayList<Country> getCountryByRegionalBloc(String bloc);
+    ArrayList<Country> getCountryByDemonym(String demonym);
 
 ```
  
